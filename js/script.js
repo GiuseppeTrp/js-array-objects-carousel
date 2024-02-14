@@ -14,13 +14,10 @@ const sliderElement = document.getElementById("slider");
 
 
 // tramite un ciclo for prendiamo ogni indirizzo delle immagini dall'array
-for (let i = 0; i < images.length; i++) {
-
-    sliderElement.innerHTML += `<img src="./img/0${i + 1}.webp" alt="immagine ${i + 1}">`;
-
-    // per ognuno di essi andremo a creare un elemento img dentro lo slider
-
-}
+// Inserimento immagini nello slider
+images.forEach((image, index) => {
+  sliderElement.innerHTML += `<img src="${image}" alt="Immagine ${index + 1}">`;
+});
 
 document.querySelector("#slider img:nth-of-type(1)").className = "active";
 
@@ -36,8 +33,8 @@ document.querySelector("#slider img:nth-of-type(1)").className = "active";
 // -  salvo un contatore della slide
 let slideNumber = 1;
 
-// -  QUANDO premo la freccia SU
-document.querySelector("#up-arrow").addEventListener("click", function() {
+// -  QUANDO premo la freccia S
+document.querySelector("#left-arrow").addEventListener("click", function() {
 
 
     if (slideNumber < images.length) {
@@ -70,7 +67,7 @@ document.querySelector("#up-arrow").addEventListener("click", function() {
 });
 
 
-document.querySelector("#down-arrow").addEventListener("click", function() {
+document.querySelector("#right-arrow").addEventListener("click", function() {
 
     if (slideNumber > 1) {
         // - prendo l'immagine attuale e le rimuovo la classe "active"  
